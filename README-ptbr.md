@@ -4,22 +4,22 @@
 
 ## Visão geral
 
-Este projeto foi construído com base em **documentação oficial** e **exemplos públicos** do ecossistema Claude Code (Anthropic) e Kiro (AWS). Ele entrega três meta-ferramentas que cobrem o ciclo completo de migração entre **Claude Code Skills** e **Kiro Powers**.
+Este projeto foi construído com base em **documentação oficial** e **exemplos públicos** da Anthropic e do Kiro (AWS). Ele entrega três meta-ferramentas que cobrem o ciclo completo de migração entre **Skills** e **Kiro Powers**.
 
 | Ferramenta | Direção | Propósito |
 |------------|---------|-----------|
-| [`skills/skill-to-power/`](./skills/skill-to-power/) | Skill → Power | Converte uma Skill do Claude Code em uma Power do Kiro |
+| [`skills/skill-to-power/`](./skills/skill-to-power/) | Skill → Power | Converte uma Skill em uma Power do Kiro |
 | [`skills/skill-creator/`](./skills/skill-creator/) | — | Cria, avalia e otimiza Skills do Kiro (SKILL.md) |
 | [`skills/power-creator/`](./skills/power-creator/) | — | Cria, avalia e otimiza Powers do Kiro do zero |
 
 ## Para quem é
 
-Qualquer pessoa que use outra ferramenta de IA — **Claude Code, Antigravity, Cursor, Codex, GitHub Copilot** — e queira migrar para o **Kiro IDE** ou **Kiro CLI**, ou o caminho inverso.
+Qualquer pessoa que use outra ferramenta de IA — **Antigravity, Cursor, Codex, GitHub Copilot** — e queira migrar para o **Kiro IDE** ou **Kiro CLI**, ou o caminho inverso.
 
-- **Vindo do Claude Code para o Kiro?** Use `skill-to-power` (se já tem Skills) ou `power-creator` (do zero).
-- **Ficando no Claude Code?** Use `skill-creator` para criar e melhorar Skills compatíveis com o Kiro.
+- **Vindo de outra ferramenta para o Kiro?** Use `skill-to-power` (se já tem Skills) ou `power-creator` (do zero).
+- **Usando outra ferramenta de IA?** Use `skill-creator` para criar e melhorar Skills compatíveis com o Kiro.
 
-## Estrutura de uma Skill (Claude Code)
+## Estrutura de uma Skill
 
 ```
 my-skill/
@@ -27,7 +27,7 @@ my-skill/
 ├── scripts/          # Opcional: código executável
 ├── references/       # Opcional: documentação
 ├── assets/           # Opcional: templates e recursos
-└── ...               # Quaisquer outros arquivos ou diretórios
+└── eval-viewer/      # Opcional: visualizador de avaliação
 ```
 
 ## Estrutura de uma Kiro Power
@@ -45,7 +45,7 @@ my-power/
 
 ## Mapeamento Skill ↔ Power
 
-| Claude Skill | Kiro Power | Propósito |
+| Skill | Kiro Power | Propósito |
 |--------------|------------|-----------|
 | `SKILL.md` | `POWER.md` | Documentação principal (sempre carregada) |
 | `references/*.md` | `steering/*.md` | Conteúdo de aprofundamento (carregado sob demanda) |
@@ -56,7 +56,7 @@ my-power/
 | `examples/` | `examples/` | Exemplos de uso (copiados na íntegra) |
 | `.mcp.json` | `mcp.json` | Configuração de servidores MCP |
 | `.claude/commands/` | `hooks/` (Manual Trigger) | Comandos slash → hooks manuais |
-| Triggering via `available_skills` do Claude | Roteamento por descrição do Kiro | Mecanismo de ativação |
+| Triggering via `available_skills` | Roteamento por descrição do Kiro | Mecanismo de ativação |
 | Subagente `claude -p` | `scripts/runtime.py` (Kiro CLI / IDE adapter) | Backend de execução para evals |
 
 ## Tipos de Hook do Kiro
@@ -72,7 +72,7 @@ Hooks do Kiro disparam automações em pontos específicos:
 
 ## Referências
 
-- [A Guide for Migrating Claude Code Skills to Kiro Powers — AWS Builder](https://builder.aws.com/content/39DLiJ3W2dTp53IqbWNxsJYgcHB/a-guide-for-migrating-claude-code-skills-to-kiro-powers)
+- [A Guide for Migrating Skills to Kiro Powers — AWS Builder](https://builder.aws.com/content/39DLiJ3W2dTp53IqbWNxsJYgcHB/a-guide-for-migrating-claude-code-skills-to-kiro-powers)
 - [Repositório oficial de Skills da Anthropic](https://github.com/anthropics/skills)
 - [`skill-creator` da Anthropic](https://github.com/anthropics/skills/tree/main/skills/skill-creator)
 - [`internal-comms` da Anthropic](https://github.com/anthropics/skills/tree/main/skills/internal-comms)
