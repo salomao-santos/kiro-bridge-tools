@@ -1,5 +1,7 @@
 ---
 name: skill-to-power
+displayName: "Skill to Power"     
+author: "Salomão Santos"
 description: Convert a Claude Code Skill directory into an equivalent Kiro Power directory. Use when user says "convert skill to power", "migrate skill to kiro", "skill to power", or provides a SKILL.md path and asks for Power output.
 ---
 

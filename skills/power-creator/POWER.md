@@ -10,7 +10,7 @@ keywords:
   - triggering
   - description-optimization
   - benchmark
-author: Community
+author: Salomão Santos
 metadata:
   source: https://github.com/anthropics/skills/tree/main/skills/skill-creator
   adapted_for: Kiro IDE + Kiro CLI
