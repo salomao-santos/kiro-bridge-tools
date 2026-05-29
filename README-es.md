@@ -1,6 +1,6 @@
 # Kiro Bridge Tools
 
-Tools that act as bridges between AI coding ecosystems and Kiro.
+Herramientas que actúan como puentes entre ecosistemas de codificación con IA y Kiro.
 
 [← Volver al README principal](./README.md) · [🇧🇷 PT-BR](./README-ptbr.md) · [🇺🇸 EN](./README-en.md)
 
