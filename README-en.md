@@ -1,4 +1,6 @@
-# Skill ↔ Power — Migration Toolkit (EN)
+# Kiro Bridge Tools
+
+Tools that act as bridges between AI coding ecosystems and Kiro.
 
 [← Back to main README](./README.md) · [🇧🇷 PT-BR](./README-ptbr.md) · [🇪🇸 ES](./README-es.md)
 

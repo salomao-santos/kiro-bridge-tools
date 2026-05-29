@@ -1,6 +1,6 @@
-# Skill ↔ Power — Migration Toolkit
+# Kiro Bridge Tools
 
-Bidirectional migration between **Skills** and **Kiro Powers**, plus a **Power Creator** for authoring Powers from scratch.
+Tools that act as bridges between AI coding ecosystems and Kiro.
 
 ## Languages / Idiomas
 

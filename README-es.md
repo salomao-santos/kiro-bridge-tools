@@ -1,4 +1,6 @@
-# Skill ↔ Power — Kit de Migración (ES)
+# Kiro Bridge Tools
+
+Tools that act as bridges between AI coding ecosystems and Kiro.
 
 [← Volver al README principal](./README.md) · [🇧🇷 PT-BR](./README-ptbr.md) · [🇺🇸 EN](./README-en.md)
 
