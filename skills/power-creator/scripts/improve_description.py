@@ -45,7 +45,7 @@ def improve_description(
     else:
         scores_summary = f"Train: {train_score}"
 
-    prompt = f"""You are optimizing a description for a Kiro Power called "{skill_name}". A "Power" is Kiro's analogue of a Claude Code Skill: a title and description that the routing layer sees when deciding whether to load the Power, plus a POWER.md body with full instructions and optional bundled resources.
+    prompt = f"""You are optimizing a description for a Kiro Power called "{skill_name}". A "Power" is Kiro's equivalent of a Kiro Skill: a title and description that the routing layer sees when deciding whether to load the Power, plus a POWER.md body with full instructions and optional bundled resources.
 
 The description appears in Kiro's available-Power list. When a user sends a query, Kiro decides whether to invoke this Power based solely on its name and description. Your goal: a description that triggers for relevant queries and does not trigger for irrelevant ones.
 

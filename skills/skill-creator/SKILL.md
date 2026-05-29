@@ -1,6 +1,6 @@
 ---
 name: skill-creator
-description: Create new Kiro skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit or optimize an existing skill, run evals to test a skill's trigger accuracy, benchmark skill performance, or optimize a skill's description for better triggering. Eval runtime uses Kiro CLI / Kiro IDE terminal by default (falls back to claude CLI if kiro not found). Auto-trigger on phrases like "create a skill", "write a skill", "improve this skill", "test my skill", "run skill evals", "optimize skill description", "benchmark skill", or any mention of SKILL.md authoring.
+description: Create new Kiro skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit or optimize an existing skill, run evals to test a skill's trigger accuracy, benchmark skill performance, or optimize a skill's description for better triggering. Eval runtime uses Kiro CLI / Kiro IDE terminal by default (falls back to claude CLI if kiro not found). Auto-trigger on phrases like "create a skill", "create kiro skill", "write a skill", "write kiro skill", "improve this skill", "test my skill", "run skill evals", "optimize skill description", "benchmark skill", or any mention of SKILL.md authoring.
 metadata:
   source: https://github.com/anthropics/skills/tree/main/skills/skill-creator
   adapted_for: Kiro CLI + Kiro IDE terminal (runtime-backends.md)

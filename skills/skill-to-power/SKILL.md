@@ -2,12 +2,12 @@
 name: skill-to-power
 displayName: "Skill to Power"     
 author: "Salomão Santos"
-description: Convert a Claude Code Skill directory into an equivalent Kiro Power directory. Use when user says "convert skill to power", "migrate skill to kiro", "skill to power", or provides a SKILL.md path and asks for Power output.
+description: Convert a Kiro Skill directory into an equivalent Kiro Power directory. Use when user says "convert skill to power", "migrate skill to kiro", "skill to power", "create kiro power from skill", or provides a SKILL.md path and asks for Power output.
 ---
 
 # skill-to-power
 
-Meta-skill that ingests a Claude Code Skill directory and emits a Kiro Power directory with valid `POWER.md`, split `steering/`, optional `hooks/`, optional `mcp.json`, and verbatim `scripts/`. Runs a validator at the end.
+Meta-skill that ingests a Kiro Skill directory and emits a Kiro Power directory with valid `POWER.md`, split `steering/`, optional `hooks/`, optional `mcp.json`, and verbatim `scripts/`. Runs a validator at the end.
 
 ## Inputs
 
