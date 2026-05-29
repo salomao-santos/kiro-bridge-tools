@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "{{HOOK_NAME}}",
+  "description": "{{HOOK_DESCRIPTION}}",
+  "version": "1",
+  "when": {
+    "type": "{{WHEN_TYPE}}"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "{{HOOK_PROMPT}}"
+  }
+}

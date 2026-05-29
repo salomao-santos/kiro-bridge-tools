@@ -1,0 +1,26 @@
+[
+  {
+    "query": "I want to run the sample-power smoke test against my workspace",
+    "should_trigger": true
+  },
+  {
+    "query": "Please invoke the sample-power fixture so I can verify the eval pipeline works end-to-end",
+    "should_trigger": true
+  },
+  {
+    "query": "Can you load sample-power and tell me what it does?",
+    "should_trigger": true
+  },
+  {
+    "query": "How do I configure my Postgres connection pool to handle 1000 concurrent connections without exhausting memory?",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a python function that parses RFC 5322 email addresses with full quoted-local-part support",
+    "should_trigger": false
+  },
+  {
+    "query": "Explain the difference between TCP slow start and congestion avoidance phases",
+    "should_trigger": false
+  }
+]

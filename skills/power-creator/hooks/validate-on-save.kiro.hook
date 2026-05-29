@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Validate POWER.md On Save",
+  "description": "Run scripts/quick_validate.py whenever POWER.md is saved. Reports frontmatter errors (missing name, missing description, oversized description, bad kebab-case, etc.).",
+  "when": {
+    "type": "fileSave",
+    "patterns": ["**/POWER.md"]
+  },
+  "then": {
+    "type": "shellCommand",
+    "command": "python -m scripts.quick_validate $(dirname ${SAVED_FILE_PATH:-POWER.md})"
+  }
+}

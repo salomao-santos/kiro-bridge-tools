@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Improve Power Description On Demand",
+  "description": "Run the full eval + improve loop against the currently focused Power. Long-running (up to --max-iterations cycles). Opens an auto-refreshing HTML report.",
+  "when": {
+    "type": "manual"
+  },
+  "then": {
+    "type": "shellCommand",
+    "command": "python -m scripts.run_loop --eval-set ${POWER_EVAL_SET:-examples/eval-set-sample.json} --power-path ${POWER_PATH:-.} --model ${POWER_IMPROVE_MODEL:-claude-opus-4-7} --max-iterations 5 --holdout 0.4 --verbose --report auto"
+  },
+  "env": {
+    "KIRO_POWER_RUNTIME": "${KIRO_POWER_RUNTIME:-}",
+    "KIRO_BIN": "${KIRO_BIN:-kiro}"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Eval Power On Demand",
+  "description": "Run trigger evaluation against the currently focused Power directory using scripts/run_eval.py. Reports pass/fail per query.",
+  "when": {
+    "type": "manual"
+  },
+  "then": {
+    "type": "shellCommand",
+    "command": "python -m scripts.run_eval --eval-set ${POWER_EVAL_SET:-examples/eval-set-sample.json} --power-path ${POWER_PATH:-.} --runs-per-query 3 --verbose"
+  },
+  "env": {
+    "KIRO_POWER_RUNTIME": "${KIRO_POWER_RUNTIME:-}",
+    "KIRO_BIN": "${KIRO_BIN:-kiro}"
+  }
+}

@@ -1,0 +1,33 @@
+---
+name: "{{NAME}}"
+displayName: "{{DISPLAY_NAME}}"
+description: "{{DESCRIPTION}}"
+keywords: {{KEYWORDS_JSON_ARRAY}}
+author: "{{AUTHOR}}"
+---
+
+# {{DISPLAY_NAME}}
+
+## Overview
+
+{{OVERVIEW}}
+
+{{!-- Optional sections — omit entirely if empty. Do NOT leave dangling headings. --}}
+{{?STEERING_INDEX}}
+## Steering Files
+
+{{STEERING_INDEX}}
+{{/STEERING_INDEX}}
+{{?SCRIPTS_TABLE}}
+## Scripts
+
+{{SCRIPTS_TABLE}}
+{{/SCRIPTS_TABLE}}
+{{?HOOKS_LIST}}
+## Hooks
+
+{{HOOKS_LIST}}
+{{/HOOKS_LIST}}
+{{?BODY_INLINE}}
+{{BODY_INLINE}}
+{{/BODY_INLINE}}

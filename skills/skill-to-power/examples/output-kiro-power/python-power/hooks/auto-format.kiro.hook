@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "name": "Auto-format Python on save",
+  "description": "Runs black + isort on any .py file when saved, then reports diffs to the user.",
+  "version": "1",
+  "when": {
+    "type": "fileSave",
+    "patterns": ["**/*.py"]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A Python file was saved. Follow steering/workflow.md: run black then isort on the saved file, diff before/after, and report changed line ranges. If either tool exits non-zero, surface the error and abort."
+  }
+}
