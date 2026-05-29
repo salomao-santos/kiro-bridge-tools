@@ -1,0 +1,58 @@
+{
+  "name": "code-review-agent",
+  "description": "Code review specialist focused on quality, security, and best practices",
+  "prompt": "You are a code review specialist focused on quality, security, and best practices. Identify bugs, security vulnerabilities, performance issues, and style violations. Reference project coding standards and security guidelines when available. Be specific: cite file, line, and the exact problem.",
+  "tools": [
+    "fs_read",
+    "execute_bash",
+    "grep",
+    "glob"
+  ],
+  "allowedTools": [
+    "fs_read",
+    "grep",
+    "glob"
+  ],
+  "toolsSettings": {
+    "execute_bash": {
+      "allowedCommands": [
+        "grep",
+        "find",
+        "wc",
+        "head",
+        "tail",
+        "diff",
+        "git diff",
+        "git log",
+        "eslint",
+        "pylint",
+        "rubocop"
+      ]
+    }
+  },
+  "resources": [
+    "file://CONTRIBUTING.md",
+    "file://docs/coding-standards.md",
+    "file://docs/security-guidelines.md",
+    "file://.eslintrc.json",
+    "file://.pylintrc",
+    "file://pyproject.toml"
+  ],
+  "hooks": {
+    "agentSpawn": [
+      {
+        "command": "git diff --name-only HEAD~1",
+        "timeout_ms": 5000,
+        "max_output_size": 2048
+      }
+    ],
+    "userPromptSubmit": [
+      {
+        "command": "find . -name '*.py' -o -name '*.js' -o -name '*.ts' | wc -l",
+        "timeout_ms": 3000,
+        "cache_ttl_seconds": 60
+      }
+    ]
+  },
+  "welcomeMessage": "Code review agent ready. Share a file, diff, or describe what to review."
+}

@@ -1,0 +1,58 @@
+{
+  "name": "aws-specialist-agent",
+  "description": "Specialized agent for AWS infrastructure and development tasks",
+  "prompt": "You are an expert AWS infrastructure specialist with deep knowledge of cloud architecture and best practices. Before executing any action, verify resources exist and confirm permissions. Always follow least-privilege principles.",
+  "model": "claude-sonnet-4",
+  "tools": [
+    "fs_read",
+    "fs_write",
+    "execute_bash",
+    "grep",
+    "glob",
+    "use_aws"
+  ],
+  "allowedTools": [
+    "fs_read",
+    "grep",
+    "glob"
+  ],
+  "toolsSettings": {
+    "use_aws": {
+      "autoAllowReadonly": true,
+      "allowedServices": [
+        "s3",
+        "lambda",
+        "cloudformation",
+        "ec2",
+        "iam",
+        "logs"
+      ]
+    },
+    "fs_write": {
+      "allowedPaths": [
+        "infrastructure/**",
+        "scripts/**",
+        "*.yaml",
+        "*.yml",
+        "*.json"
+      ]
+    }
+  },
+  "resources": [
+    "file://README.md",
+    "file://infrastructure/**/*.yaml",
+    "file://infrastructure/**/*.yml",
+    "file://docs/aws-setup.md",
+    "file://scripts/deploy.sh"
+  ],
+  "hooks": {
+    "agentSpawn": [
+      {
+        "command": "aws sts get-caller-identity",
+        "timeout_ms": 10000,
+        "cache_ttl_seconds": 300
+      }
+    ]
+  },
+  "welcomeMessage": "AWS specialist ready. I verify resources before executing. What infrastructure task do you need?"
+}

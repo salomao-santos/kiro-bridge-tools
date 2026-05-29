@@ -1,0 +1,79 @@
+{
+  "name": "mobile-app-agent",
+  "description": "Backend development specialist for mobile applications with Docker and database management",
+  "prompt": "You are a backend development specialist for mobile applications with expertise in Docker and database management. Always check container and service health before running migrations or deployments. Prefer read-only queries when exploring data.",
+  "tools": [
+    "fs_read",
+    "fs_write",
+    "execute_bash",
+    "@docker",
+    "@database"
+  ],
+  "allowedTools": [
+    "fs_read",
+    "@docker/docker_ps",
+    "@docker/docker_logs",
+    "@database/query_read_only"
+  ],
+  "toolAliases": {
+    "@docker/docker_ps": "containers",
+    "@docker/docker_logs": "logs",
+    "@database/query_read_only": "query"
+  },
+  "toolsSettings": {
+    "fs_write": {
+      "allowedPaths": [
+        "src/**",
+        "tests/**",
+        "migrations/**",
+        "docker-compose.yml",
+        "Dockerfile",
+        "requirements.txt"
+      ]
+    },
+    "execute_bash": {
+      "allowedCommands": [
+        "npm test",
+        "npm run build",
+        "python manage.py test",
+        "docker-compose up",
+        "docker-compose down"
+      ]
+    }
+  },
+  "mcpServers": {
+    "docker": {
+      "command": "docker-mcp-server",
+      "args": ["--socket", "/var/run/docker.sock"]
+    },
+    "database": {
+      "command": "postgres-mcp-server",
+      "args": ["--connection", "postgresql://localhost:5432/myapp"],
+      "env": {
+        "PGPASSWORD": "$DATABASE_PASSWORD"
+      }
+    }
+  },
+  "resources": [
+    "file://README.md",
+    "file://docs/api-documentation.md",
+    "file://docs/database-schema.md",
+    "file://docker-compose.yml",
+    "file://requirements.txt",
+    "file://src/config/settings.py"
+  ],
+  "hooks": {
+    "agentSpawn": [
+      {
+        "command": "docker-compose ps",
+        "timeout_ms": 10000,
+        "cache_ttl_seconds": 30
+      },
+      {
+        "command": "git status --porcelain",
+        "timeout_ms": 5000
+      }
+    ]
+  },
+  "welcomeMessage": "Mobile backend agent ready. Docker and database tools connected. What do you need to build, debug, or deploy?"
+}

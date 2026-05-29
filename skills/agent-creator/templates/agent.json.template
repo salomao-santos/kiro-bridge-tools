@@ -1,0 +1,84 @@
+{
+  "name": "{{NAME}}",
+  "description": "{{DESCRIPTION}}",
+  "prompt": "{{PROMPT}}",
+
+  "model": "claude-sonnet-4",
+
+  "tools": [
+    "fs_read",
+    "fs_write",
+    "execute_bash",
+    "grep",
+    "glob"
+  ],
+
+  "allowedTools": [
+    "fs_read",
+    "grep",
+    "glob"
+  ],
+
+  "toolsSettings": {
+    "execute_bash": {
+      "autoAllowReadonly": true
+    },
+    "fs_write": {
+      "allowedPaths": [
+        "src/**",
+        "docs/**",
+        "*.md"
+      ]
+    },
+    "execute_bash_constrained": {
+      "allowedCommands": [
+        "git diff",
+        "git log",
+        "git status"
+      ]
+    }
+  },
+
+  "toolAliases": {
+    "@server/long_tool_name": "short-alias"
+  },
+
+  "resources": [
+    "file://README.md",
+    "file://docs/**/*.md"
+  ],
+
+  "mcpServers": {
+    "example-server": {
+      "command": "example-mcp-server",
+      "args": ["--flag", "value"],
+      "env": {
+        "SECRET_KEY": "$ENV_VAR_NAME"
+      },
+      "timeout": 30000
+    },
+    "example-http-server": {
+      "url": "https://api.example.com/mcp",
+      "type": "http"
+    }
+  },
+
+  "hooks": {
+    "agentSpawn": [
+      {
+        "command": "git status --porcelain",
+        "timeout_ms": 5000,
+        "cache_ttl_seconds": 30
+      }
+    ],
+    "userPromptSubmit": [
+      {
+        "command": "echo 'ready'",
+        "timeout_ms": 3000,
+        "max_output_size": 512
+      }
+    ]
+  },
+
+  "welcomeMessage": "{{WELCOME_MESSAGE}}"
+}
